@@ -237,7 +237,9 @@ Sincerely,
 
 <img src='CHRO.jpeg' className='c21'/>
  <div className='container c15'>
-Chirag Gupta HR
+Chirag Gupta
+<br />
+Chief Human Resource Officer
 <br />
 GeekBoy.tech Private Limited
   </div>
