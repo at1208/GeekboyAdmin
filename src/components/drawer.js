@@ -43,7 +43,9 @@ class SideDrawer extends React.Component {
           visible={this.state.visible}
         >
           <Link to='/offerLetter'><p>Offer Letter</p></Link>
+          <Link to='/userManagement'><p>User Management</p></Link>
           <Link to='/'><p>Logout</p></Link>
+
 
         </Drawer>
       </div>

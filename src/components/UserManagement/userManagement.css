@@ -1,0 +1,31 @@
+.d1{
+  margin: 20px;
+}
+.d2{
+  background-color: #6442E0;
+  margin: 10px;
+  color: white;
+
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width:100%;
+
+}
+th{
+  background-color: #6442E0;
+  color: white;
+}
+td, th {
+  border: 1px solid #ede7f6;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ede7f6;
+}
+.d3{
+  padding: 20px;
+}
