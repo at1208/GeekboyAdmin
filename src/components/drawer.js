@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './drawer.css'
-import { Drawer, Button,  } from 'antd';
+import { Drawer, Button,Icon  } from 'antd';
 import { MdReorder } from "react-icons/md";
 import { Link } from 'react-router-dom'
 
@@ -42,9 +42,10 @@ class SideDrawer extends React.Component {
           onClose={this.onClose}
           visible={this.state.visible}
         >
-          <Link to='/offerLetter'><p>Offer Letter</p></Link>
-          <Link to='/userManagement'><p>User Management</p></Link>
-          <Link to='/'><p>Logout</p></Link>
+          <Link to='/offerLetter'><p><Icon type="gift" style={{"fontSize":"25px", "color": "white", "marginRight":"5px"}} />Offer Letter</p></Link>
+          <Link to='/content'><p><Icon type="reconciliation" style={{"fontSize":"25px", "color": "white",  "marginRight":"5px"}}/>Content</p></Link>
+          <Link to='/userManagement'><p><Icon type="usergroup-add" style={{"fontSize":"25px", "color": "white",  "marginRight":"5px"}} />User Management</p></Link>
+          <Link to='/'><p><Icon type="logout" style={{"fontSize":"25px", "color": "white",  "marginRight":"5px"}}/>Logout</p></Link>
 
 
         </Drawer>

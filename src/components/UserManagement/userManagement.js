@@ -3,7 +3,7 @@ import Header from '../header'
 import './userManagement.css'
 import { Link } from 'react-router-dom'
 import { Button } from 'antd';
-
+import { Icon } from 'antd';
 
 class UserManagement extends Component{
 

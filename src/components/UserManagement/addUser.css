@@ -10,6 +10,15 @@
   color: white;
   background-color: #6442E0;
 }
+.f4{
+width: 100%;
+height: 30px;
+border: 1px solid grey;
+border-radius: 15px 0px 0px 15px;
+}
+.f5{
+  margin-top: 10px;
+}
 
 .ant-input {
   -webkit-box-sizing: border-box;
