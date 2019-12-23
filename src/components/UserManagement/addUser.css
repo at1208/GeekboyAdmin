@@ -178,7 +178,7 @@ textarea.ant-input {
   background-color: #6442E0;
   color: white;
   border: 1px solid #d9d9d9;
-  border-radius: 17px;
+  border-radius: 5px;
   width: 120px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;

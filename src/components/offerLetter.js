@@ -3,7 +3,8 @@ import ReactDOM from 'react-router-dom'
 import './offerLetter.css'
 import 'antd/dist/antd.css';
 import { Input } from 'antd';
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
+import { DatePicker, Button } from 'antd';
 import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
 import Drawer from './drawer'
 import './drawer.css'
@@ -53,11 +54,11 @@ pdfExportComponent;
 
       };
 
-      startDateChange = date => {
-          this.setState({
-            startDate: date
-          });
-        };
+      // startDateChange = date => {
+      //     this.setState({
+      //       startDate: date
+      //     });
+      //   };
 
 
 
@@ -71,6 +72,10 @@ pdfExportComponent;
         console.log('message sent')
       }
 
+      onChangeDate = (date, dateString) => {
+       this.setState({ startDate: date })
+       console.log(date, dateString);
+     }
 
 
 
@@ -138,32 +143,22 @@ console.log(joindate)
            <Input placeholder="Enter Name"  className='c4' onChange={ e => this.setState({ name: e.target.value })} value={this.state.name} />
 
            <div className='c11 '>
-           <h4>Permanent Address</h4>
-           <Input placeholder="Address Line 1 eg. flat no. and colony"  className='c4' onChange={ e => this.setState({ permanentAddress1: e.target.value })} value={this.state.permanentAddress1} />
-           <Input placeholder="Address Line 2 eg. city name"  className='c4' onChange={ e => this.setState({ permanentAddress2: e.target.value })} value={this.state.permanentAddress2} />
-           <Input placeholder="State"  className='c4' onChange={ e => this.setState({ permanentAddress3: e.target.value })} value={this.state.permanentAddress3} />
+           <h4 style={{ "marginTop":"15px"}}> Permanent Address</h4>
+           <Input placeholder="Address Line 1 eg. flat no. and colony"  className='c4' onChange={ e => this.setState({ permanentAddress1: e.target.value })} value={this.state.permanentAddress1} style={{ "marginTop":"5px"}}/>
+           <Input placeholder="Address Line 2 eg. city name"  className='c4' onChange={ e => this.setState({ permanentAddress2: e.target.value })} value={this.state.permanentAddress2} style={{ "marginTop":"5px"}}/>
+           <Input placeholder="State"  className='c4' onChange={ e => this.setState({ permanentAddress3: e.target.value })} value={this.state.permanentAddress3}  style={{ "marginTop":"5px"}}/>
 
            </div>
 
-           <div className='row'>
-           <Input placeholder="Date of onboard"  className='c4 col-9' value={this.state.startDate} />
-           <DatePicker
-           className='c6'
-            placeholder='Select Date'
-            selected={this.state.startDate}
-            onChange={this.startDateChange}
-            showTimeSelect
-
-
-            dateFormat="MMMM d, yyyy"
-            />
-
+           <div className='row' style={{ "marginTop":"15px"}}>
+          <DatePicker onChange={this.onChangeDate} style={{ "width": "100%" }} placeholder='Select onboard date'/>
            </div>
-           <Input placeholder="Designation"  className='c4' onChange={ e => this.setState({ desi: e.target.value})} value={this.state.desi}/>
+
+           <Input placeholder="Designation"  className='c4' onChange={ e => this.setState({ desi: e.target.value})} value={this.state.desi} style={{ "marginTop":"5px"}}/>
            </div>
 
            <div className="  text-center c20">
-                       <button className="k-button btn-md btn-primary" onClick={this.exportPDFWithComponent}>Download</button>
+                       <Button type='primary' className="k-button btn-md btn-primary" onClick={this.exportPDFWithComponent}>Download</Button>
 
                    </div>
 
@@ -208,7 +203,7 @@ console.log(joindate)
       </div>
 
       <div className='c13'>
-         {"Dear " + this.state.name+ ','}
+         {"Dear " + this.state.name+','}
       </div>
 
 <div>
