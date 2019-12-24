@@ -50,7 +50,7 @@ class MyEditor extends Component {
       saveContent = debounce((content) => {
         window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
 
-        fetch('/content', {
+        fetch('/product', {
      method: 'POST',
      body: JSON.stringify({
        content: convertToRaw(content),

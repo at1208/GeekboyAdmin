@@ -61,7 +61,7 @@ class AddUser extends Component {
 
     const AddUser = (e) => {
       e.preventDefault()
-      
+
 
 
 
@@ -97,6 +97,7 @@ if(this.state.responseStatus == '200'){
 
 <form>
     <div style={{ marginBottom: 16 }}>
+
       <Input addonBefore="User Name"  defaultValue="" onChange={ e => this.setState({ userName: e.target.value })} value={this.state.userName} />
     </div>
 

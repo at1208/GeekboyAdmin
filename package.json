@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^3.26.3",
+    "axios": "^0.19.0",
     "draft-js": "^0.11.3",
     "draftjs-to-html": "^0.9.1",
     "html-to-draftjs": "^1.5.0",
@@ -26,7 +27,8 @@
     "react-pdf": "^4.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
-    "react-to-pdf": "0.0.8"
+    "react-to-pdf": "0.0.8",
+    "reactjs-input-validator": "^0.16.4"
   },
   "scripts": {
     "start": "react-scripts start",

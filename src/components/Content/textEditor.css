@@ -821,7 +821,7 @@
   overflow: auto;
   box-sizing: border-box;
   background-color: white;
-  border: 0.08px solid black;
+  border: 0.08px dashed grey;
   padding: 5px;
   margin-bottom: 40px;
 }

@@ -10,3 +10,6 @@
   color: white;
   background-color: #6442E0;
 }
+.ant-input{
+  padding: 1px 11px !important;
+}

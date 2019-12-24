@@ -5,7 +5,7 @@ import { Input, Select , InputNumber,  Cascader, Button } from 'antd';
 import { DatePicker } from 'antd';
 import { Upload, Icon, message } from 'antd';
 import TextEditor from './textEditor'
-
+import axios from 'axios'
 
 
 
@@ -14,10 +14,10 @@ const InputGroup = Input.Group;
 const { Option } = Select;
 
 
-
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
+//
+// function onChange(date, dateString) {
+//   console.log(date, dateString);
+// }
 
 
 
@@ -53,60 +53,59 @@ function beforeUpload(file) {
 class CreateContent extends Component{
 
   state = {
-  loading: false,
+   selectedImg: null,
+  imgURL: '',
+  postedDate: ''
 
 
 };
 
 
+onImageSelect = (e) => {
+      console.log(e.target.files[0])
+      this.setState({ selectedImg: e.target.files[0]})
+}
 
 
-handleChange = info => {
-    if (info.file.status === 'uploading') {
-      this.setState({ loading: true });
-      return;
-    }
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, imageUrl =>
-        this.setState({
-          imageUrl,
-          loading: false,
-        }),
-      );
-    }
-  };
+onImageUplaod = () => {
+  const fd = new FormData()
+  fd.append('image', this.state.selectedImg, this.state.selectedImg.name);
 
+  fetch("localhost:4000/upload-images", {
+            method: "POST",
+            headers: {
+            'Content-Type':'multipart/form-data',
+            },
+            body: fd
+          })
+         .then(json =>  console.log(json))
+        .catch( err => console.log(err))
+
+
+
+}
 
 
 
 
   render(){
 
-    const uploadButton = (
-      <div>
-        <Icon type={this.state.loading ? 'loading' : 'plus'} />
-        <div className="ant-upload-text">Upload</div>
-      </div>
-    );
-    const { imageUrl } = this.state;
-
 
     return <>
     <Header />
     <div className='container-fluid g1 row justify-content-center'>
-     <div className='shadow g2 container'>
+     <div className='shadow g2 container text-center'>
 
 
 
 
-<TextEditor />
+
 
 
 <div style={{ marginBottom: 16 }}>
      <Select
        showSearch
-       style={{ width: 500 }}
+        style={{ width: "70%" }}
        placeholder="Select Content Type"
        optionFilterProp="children"
        onChange={(value) =>    this.setState({ status: value }) }
@@ -127,7 +126,7 @@ handleChange = info => {
 <div style={{ marginBottom: 16 }}>
      <Select
        showSearch
-       style={{ width: 500 }}
+        style={{ width: "70%" }}
        placeholder="Select Status"
        optionFilterProp="children"
        onChange={(value) =>    this.setState({ status: value }) }
@@ -144,13 +143,13 @@ handleChange = info => {
 </div>
 
     <div style={{ marginBottom: 16 }}>
-          <DatePicker onChange={onChange} placeholder='Select Posted date'  style={{ width: 500 }}/>
+          <DatePicker onChange={(date) => this.setState({ postedDate: date })} placeholder='Select Posted date'   style={{ width: "70%" }}/>
     </div>
 
     <div style={{ marginBottom: 16 }}>
          <Select
            showSearch
-           style={{ width: 500 }}
+           style={{ width: "70%" }}
            placeholder="Select Status"
            optionFilterProp="children"
            onChange={(value) =>    this.setState({ status: value }) }
@@ -169,22 +168,16 @@ handleChange = info => {
          </Select>
     </div>
 
-
-    <div style={{ marginBottom: 16 }} className=''>
-    <Upload
-        name="avatar"
-        listType="picture-card"
-        className="avatar-uploader"
-        showUploadList={true}
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        beforeUpload={beforeUpload}
-        onChange={this.handleChange}
-      >
-        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-      </Upload>
+    <div style={{ marginBottom: 16 }}>
+          <Input onChange={(e) => this.setState({ imgURL: e.target.value })} placeholder='Image url'   style={{ width: "70%" }}/>
     </div>
 
+    <div style={{ marginBottom: 16 }} className='text-center' >
+     <Input type='file' onChange={this.onImageSelect} style={{ width: "30%" }}/>
+     <Button onClick={this.onImageUplaod} style={{ margin: "5px" }}>Upload</Button>
+    </div>
 
+<TextEditor />
 
     <Button block className='g3'>Create</Button>
     </div>
