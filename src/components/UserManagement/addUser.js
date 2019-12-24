@@ -118,7 +118,7 @@ if(this.state.responseStatus == '200'){
    <div style={{  marginBottom: 16 }}>
    <Select
      showSearch
-     style={{ width: 500 }}
+     style={{ width: "100%"}}
      placeholder="Select Role"
      optionFilterProp="children"
      onChange={(value) =>    this.setState({ role: value }) }
@@ -138,7 +138,7 @@ if(this.state.responseStatus == '200'){
    <div style={{  marginBottom: 16 }}>
    <Select
      showSearch
-     style={{ width: 500 }}
+     style={{ width: "100%" }}
      placeholder="Select Status"
      optionFilterProp="children"
      onChange={(value) =>    this.setState({ status: value }) }

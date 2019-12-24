@@ -47,7 +47,7 @@ class UserManagement extends Component{
 
   render(){
     console.log(this.state.data)
-    return <>
+    return <div className=''>
     <Header />
     <div className='container text-center'>
     <div className='card d1 container'>
@@ -73,7 +73,7 @@ class UserManagement extends Component{
   </div>
     </div>
     </div>
-    </>
+    </div>
   }
 }
 

@@ -33,7 +33,7 @@ class SideDrawer extends React.Component {
     return (
       <div>
         <MdReorder type="primary" onClick={this.showDrawer} className='drawer-icon'>
-          Open
+
         </MdReorder>
         <Drawer
           title="Admin"
@@ -49,6 +49,7 @@ class SideDrawer extends React.Component {
 
 
         </Drawer>
+        <span    style={{ marginLeft: "20px", fontSize:"26px"}}>GeekBoy.tech</span>
       </div>
     );
   }

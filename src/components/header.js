@@ -5,7 +5,10 @@ const Header =  () => {
   return <>
   <div>
  <div className='b1'>
-   <div className='b2'><Drawer /></div>
+   <div className='b2'>
+    <Drawer />
+   
+   </div>
 
  </div>
  </div>
